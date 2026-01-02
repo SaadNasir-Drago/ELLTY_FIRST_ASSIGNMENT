@@ -1,0 +1,289 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.page-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    font-size: 16px;
+    opacity: 0.95;
+    font-weight: 400;
+}
+
+/* Footer */
+.page-footer {
+    background: #2d3748;
+    color: #cbd5e0;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.page-footer p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.page-footer p:first-child {
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px;
+    flex: 1;
+}
+
+.component-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.component-section {
+    width: 100%;
+    max-width: 400px;
+}
+
+.component-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+/* Button List Component */
+.button-list {
+    background: #ffffff;
+    border: 2px dashed #9b59b6;
+    border-radius: 12px;
+    padding: 20px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.done-button {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(180deg, #FFD93D 0%, #F9C74F 100%);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2d2d2d;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.done-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.done-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkbox List Component */
+.checkbox-list {
+    background: #ffffff;
+    border: 2px dashed #9b59b6;
+    border-radius: 12px;
+    padding: 20px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 12px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.checkbox-item:hover {
+    background-color: #f8f9fa;
+}
+
+.checkbox-label {
+    font-size: 15px;
+    font-weight: 400;
+    color: #2d2d2d;
+    user-select: none;
+}
+
+.checkbox-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-custom {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #d1d5db;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+    flex-shrink: 0;
+}
+
+.checkbox-custom-light {
+    border-color: #e5e7eb;
+}
+
+/* Checked state */
+.checkbox-input:checked ~ .checkbox-custom {
+    background: linear-gradient(135deg, #4F85FF 0%, #5B8FFF 100%);
+    border-color: #4F85FF;
+}
+
+.checkbox-input:checked ~ .checkbox-custom::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 3px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+}
+
+/* Hover state for checkbox */
+.checkbox-item:hover .checkbox-custom {
+    border-color: #9ca3af;
+}
+
+.checkbox-item:hover .checkbox-input:checked ~ .checkbox-custom {
+    border-color: #4F85FF;
+}
+
+/* Page Selection Component */
+.page-selection {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.page-selection .checkbox-item {
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.page-selection .checkbox-item:last-of-type {
+    border-bottom: none;
+    margin-bottom: 16px;
+}
+
+.page-selection .done-button {
+    margin-top: 12px;
+}
+
+/* Checkbox States Vertical */
+.checkbox-states-vertical {
+    background: #ffffff;
+    border: 2px dashed #9b59b6;
+    border-radius: 12px;
+    padding: 20px 28px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.checkbox-states-vertical .checkbox-item {
+    padding: 0;
+    justify-content: center;
+}
+
+/* Focus states for accessibility */
+.checkbox-input:focus-visible ~ .checkbox-custom {
+    outline: 2px solid #4F85FF;
+    outline-offset: 2px;
+}
+
+.done-button:focus-visible {
+    outline: 2px solid #F9C74F;
+    outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .button-list,
+    .checkbox-list,
+    .page-selection {
+        width: 100%;
+        max-width: 360px;
+    }
+}
+
+/* Animation for checkbox */
+@keyframes checkmarkAnimation {
+    0% {
+        transform: rotate(45deg) scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: rotate(45deg) scale(1.1);
+    }
+    100% {
+        transform: rotate(45deg) scale(1);
+        opacity: 1;
+    }
+}
+
+.checkbox-input:checked ~ .checkbox-custom::after {
+    animation: checkmarkAnimation 0.3s ease;
+}
